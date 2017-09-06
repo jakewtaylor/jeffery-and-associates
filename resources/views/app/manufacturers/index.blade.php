@@ -12,7 +12,7 @@
     </div>
 
     <div class="cards">
-        <a href="{{ route('brands.create') }}" class="card green-outline center">
+        <a href="{{ route('manufacturers.create') }}" class="card green-outline center">
             <div class="header">
                 <h1>Add</h1>
                 <i class="material-icons">add</i>
