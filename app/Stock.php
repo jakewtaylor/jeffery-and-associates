@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Stock extends Model {
     /*
+     * Properties
+     */
+    protected $guarded = [];
+
+    /*
      * Relations
      */
     public function brand () {

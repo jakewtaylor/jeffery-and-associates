@@ -21,6 +21,10 @@ $colors: [pink, orange, blue, red, green, purple, yellow];
             a {
                 color: color($color);
             }
+
+            th, td {
+                color: color(black);
+            }
         }
     }
 }

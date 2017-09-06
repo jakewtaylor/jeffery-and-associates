@@ -13,4 +13,11 @@ class Manufacturer extends Model {
     public function stock () {
         return $this->hasMany(Stock::class);
     }
+
+    /**
+     * Static Functions
+     */
+    public static function allGroupedAlphabetically () {
+        return groupAlphabetically(Manufacturer::all(), 'name');
+    }
 }

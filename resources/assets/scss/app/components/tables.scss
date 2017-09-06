@@ -1,0 +1,25 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+    thead tr {
+        // background: darken(color(off-white), 10%);
+    }
+
+    tbody tr {
+        &:nth-child(odd) {
+            background: color(off-white);
+        }
+
+        &:hover {
+            background: darken(color(off-white), 5%);
+        }
+    }
+
+    tr {
+        th, td {
+            text-align: left;
+            padding: .5em .3em;
+        }
+    }
+}

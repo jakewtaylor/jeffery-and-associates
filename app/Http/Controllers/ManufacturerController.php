@@ -8,12 +8,7 @@ use Illuminate\Http\Request;
 class ManufacturerController extends Controller {
     // GET /manufacturers
     public function index () {
-        $manufacturers = Manufacturer::all()
-            ->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE)
-            ->groupBy(function ($item) {
-                $grouper = substr($item['name'], 0, 1);
-                return ctype_alpha($grouper) ? strtoupper($grouper) : "&";
-            });
+        $manufacturers = Manufacturer::allGroupedAlphabetically();
 
         return view('app.manufacturers.index', [
             'groupedManufacturers' => $manufacturers,

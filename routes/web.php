@@ -31,6 +31,6 @@ Route::group($appGroup, function () {
     Route::resource('practices', 'PracticeController');
     Route::resource('users', 'UserController');
     Route::resource('brands', 'BrandController');
-    Route::resource('stock', 'StockController');
+    Route::resource('stock', 'StockController', ['except' => ['show']]);
     Route::resource('manufacturers', 'ManufacturerController');
 });

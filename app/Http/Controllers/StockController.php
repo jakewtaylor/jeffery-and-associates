@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\{ Stock, Brand };
+use App\{ Stock, Brand, Manufacturer };
 use Illuminate\Http\Request;
+
+use App\Http\Requests\{ CreateStockRequest };
 
 class StockController extends Controller {
     // GET /stock
@@ -14,17 +16,34 @@ class StockController extends Controller {
     // GET /stock/create
     public function create (Request $request) {
         $selectedBrand = Brand::find($request->brand);
-        $brands = Brand::all();
+        $brands = Brand::allGroupedAlphabetically();
+
+        $manufacturers = Manufacturer::allGroupedAlphabetically();
 
         return view('app.stock.create', [
             'selectedBrand' => $selectedBrand,
             'brands' => $brands,
+            'manufacturers' => $manufacturers,
         ]);
     }
 
     // POST /stock
-    public function store (Request $request) {
-        //
+    public function store (CreateStockRequest $request) {
+        $stock = Stock::create([
+            'brand_id' => $request->brand,
+            'manufacturer_id' => $request->manufacturer,
+            'model' => $request->model,
+            'eyesize' => $request->eyesize,
+            'dbl' => $request->dbl,
+            'colour' => $request->colour,
+            'price' => $request->price,
+            'year' => $request->year,
+            'code' => $request->code,
+        ]);
+
+        return redirect()->route('stock.show', [
+            'id' => $stock->id,
+        ]);
     }
 
     // GET /stock/{id}

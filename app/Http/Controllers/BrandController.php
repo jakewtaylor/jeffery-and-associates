@@ -8,12 +8,7 @@ use Illuminate\Http\Request;
 class BrandController extends Controller {
     /// GET /brands
     public function index () {
-        $brands = Brand::all()
-            ->sortBy('name', SORT_NATURAL|SORT_FLAG_CASE)
-            ->groupBy(function ($item) {
-                $grouper = substr($item['name'], 0, 1);
-                return ctype_alpha($grouper) ? strtoupper($grouper) : "&";
-            });
+        $brands = Brand::allGroupedAlphabetically();
 
         return view('app.brands.index', [
             'groupedBrands' => $brands,

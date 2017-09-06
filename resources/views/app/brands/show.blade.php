@@ -34,7 +34,24 @@
                         </thead>
                         <tbody>
                             @foreach ($brand->stock as $stock)
-
+                                <tr>
+                                    <td>{{ $stock->model }}</td>
+                                    <td>{{ $stock->eyesize }}</td>
+                                    <td>{{ $stock->dbl }}</td>
+                                    <td>{{ $stock->colour }}</td>
+                                    @php $route = route('manufacturers.show', [
+                                        'id' => $stock->manufacturer->id,
+                                    ]) @endphp
+                                    <td>
+                                        <a href="{{ $route }}">
+                                            {{ $stock->manufacturer->name }}
+                                        </a>
+                                    </td>
+                                    <td>{{ $stock->price }}</td>
+                                    <td>{{ $stock->year }}</td>
+                                    <td>{{ $stock->code }}</td>
+                                    <td></td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>

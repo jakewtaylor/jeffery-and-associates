@@ -18,4 +18,11 @@ class Brand extends Model {
     public function stock () {
         return $this->hasMany(Stock::class);
     }
+
+    /**
+     * Static Functions
+     */
+    public static function allGroupedAlphabetically () {
+        return groupAlphabetically(Brand::all(), 'name');
+    }
 }
