@@ -1,0 +1,65 @@
+@import '../imports/colors';
+
+form {
+    select {
+        width: 100%;
+        padding: 12px 0;
+        font-size: 21px;
+        border-style: none;
+        border-bottom: 2px solid color(grey);
+        color: color(black);
+        margin-bottom: 36px;
+
+        &:focus {
+            outline: 0;
+        }
+    }
+
+    input {
+        width: 100%;
+        padding: 12px;
+        font-size: 21px;
+
+        &:focus {
+            outline: 0;
+        }
+
+        &[type="radio"],
+        &[type="checkbox"] {
+            padding: 0;
+            width: auto;
+        }
+
+        &[type="text"],
+        &[type="url"],
+        &[type="tel"],
+        &[type="number"],
+        &[type="password"],
+        &[type="email"] {
+            padding: 12px 0;
+            border: none;
+            border-bottom: 2px solid color(grey);
+            color: color(black);
+            transition: all .2s;
+            margin-bottom: 36px;
+
+            &:focus {
+                border-color: color(blue);
+            }
+
+            &::placeholder {
+                color: color(grey);
+            }
+        }
+
+        &[type="submit"] {
+            background: color(blue);
+            color: color(white);
+            text-align: center;
+            border: none;
+            border-radius: 43px;
+            cursor: pointer;
+            margin: 12px 0;
+        }
+    }
+}

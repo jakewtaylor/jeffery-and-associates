@@ -1,0 +1,24 @@
+@import '../imports/colors';
+@import '../imports/reset';
+@import '../imports/fonts';
+
+@import '../components/forms';
+@import '../components/notices';
+@import '../components/popup';
+
+@import './components/header';
+@import './components/cards';
+@import './components/forms';
+
+html, body {
+    min-height: 100vh;
+    background: color(off-white);
+}
+
+.container {
+    padding: 2em;
+
+    & > h2 {
+        margin-bottom: 1em;
+    }
+}

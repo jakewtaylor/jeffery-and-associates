@@ -1,0 +1,21 @@
+@import '../imports/colors';
+
+.notice {
+    padding: 12px 36px;
+    margin-bottom: 3em;
+    width: 100%;
+    text-align: left;
+
+    background: color(white);
+    color: color(black);
+    border-radius: 32px;
+
+    p {
+        font-size: 22px;
+    }
+
+    &.error {
+        background: lighten(color(red), 5%);
+        color: color(white);
+    }
+}

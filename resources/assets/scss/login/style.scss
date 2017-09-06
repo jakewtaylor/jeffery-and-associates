@@ -1,0 +1,44 @@
+@import '../imports/colors';
+@import '../imports/reset';
+@import '../imports/fonts';
+
+@import '../components/forms';
+@import '../components/notices';
+
+html, body {
+    background: color(off-white);
+    height: 100%;
+}
+
+.container {
+    height: 100%;
+    margin: 0 auto;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h1 {
+        font-size: 48px;
+        line-height: 3em;
+    }
+}
+
+.login {
+    width: 100%;
+    background: color(white);
+    box-shadow: 0 10px 50px 0 rgba(black, 0.11);
+    padding: 50px;
+    border-radius: 32px;
+
+    .remember {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 24px;
+
+        input { margin-right: 12px; }
+    }
+}

@@ -1,0 +1,26 @@
+$colors: [pink, orange, blue, red, green, purple, yellow];
+@each $color in $colors {
+    &.#{$color}-inverted {
+        &, .header {
+            h1, h2 {
+                color: color($color);
+            }
+
+            i, p {
+                color: color(black);
+            }
+        }
+
+        .actions {
+            a {
+                color: color($color);
+            }
+        }
+
+        .body {
+            a {
+                color: color($color);
+            }
+        }
+    }
+}

@@ -1,0 +1,8 @@
+$colors: [pink, orange, blue, red, green, purple, yellow];
+@each $color in $colors {
+    $c1: lighten(color($color), 5%);
+    $c2: darken(color($color), 10%);
+    &.#{$color} {
+        background: linear-gradient(135deg, $c1, $c2);
+    }
+}
