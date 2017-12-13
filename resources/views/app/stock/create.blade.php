@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Create Stock</h1>
+    <h2>Create Stock</h2>
 
     @include('components.errors')
 

@@ -37,7 +37,6 @@
         />
 
         <input
-            required
             type="text"
             name="line2"
             id="line2"

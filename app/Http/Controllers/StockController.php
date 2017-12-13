@@ -10,7 +10,9 @@ use App\Http\Requests\{ CreateStockRequest };
 class StockController extends Controller {
     // GET /stock
     public function index () {
-        //
+        return view('app.stock.index', [
+            'stocks' => Stock::all(),
+        ]);
     }
 
     // GET /stock/create
@@ -41,9 +43,7 @@ class StockController extends Controller {
             'code' => $request->code,
         ]);
 
-        return redirect()->route('stock.show', [
-            'id' => $stock->id,
-        ]);
+        return redirect()->route('stock.show', $stock);
     }
 
     // GET /stock/{id}

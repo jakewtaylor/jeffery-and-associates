@@ -17,7 +17,7 @@ class ManufacturerController extends Controller {
 
     // GET /manufacturers/create
     public function create () {
-        //
+        return view('app.manufacturers.create');
     }
 
     // POST /manufacturers
@@ -27,7 +27,7 @@ class ManufacturerController extends Controller {
 
     // GET /manufacturers/{id}
     public function show (Manufacturer $manufacturer) {
-        //
+        return view('app.manufacturers.show', $manufacturer);
     }
 
     // GET /manufacturers/{id}/edit

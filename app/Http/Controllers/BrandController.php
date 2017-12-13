@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Brand;
 use Illuminate\Http\Request;
 
+use App\Http\Requests\{ CreateBrandRequest };
+
 class BrandController extends Controller {
     /// GET /brands
     public function index () {
@@ -17,12 +19,16 @@ class BrandController extends Controller {
 
     // GET /brands/create
     public function create () {
-        //
+        return view('app.brands.create');
     }
 
     // POST /brands
-    public function store (Request $request) {
-        //
+    public function store (CreateBrandRequest $request) {
+        $brand = Brand::create([
+            'name' => $request->name,
+        ]);
+
+        return redirect()->route('brands.show', $brand);
     }
 
     /// GET /brands/{id}
@@ -44,6 +50,11 @@ class BrandController extends Controller {
 
     // DELETE /brands/{id}
     public function destroy (Brand $brand) {
-        //
+        if ($brand->stock()->count() > 0) {
+            return back()->withErrors('You cannot delete this brand because it has associated stock.');
+        }
+
+        $brand->delete();
+        return redirect()->route('brands.index');
     }
 }

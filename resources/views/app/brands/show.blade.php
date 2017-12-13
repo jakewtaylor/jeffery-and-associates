@@ -1,9 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>{{ $brand->name }}</h1>
+    <h2>Brands</h2>
+
+    @include('components.errors')
 
     <div class="cards">
+        <div class="card blue-outline">
+            <div class="actions">
+                <a href="{{ route('brands.edit', $brand) }}">
+                    Edit
+                </a>
+                <a href="#" class="popup-trigger" data-popup="delete">
+                    Delete
+                </a>
+            </div>
+
+            <div class="header">
+                <h1>{{ $brand->name }}</h1>
+            </div>
+        </div>
+
         <div class="card full blue-inverted">
             <div class="actions">
                 @php
@@ -61,4 +78,23 @@
             </div>
         </div>
     </div>
+
+    <div class="popup" id="popup-delete">
+        <form
+            action="{{ route('brands.destroy', $brand) }}"
+            method="POST"
+            class="danger confirmation"
+            id="delete-form"
+        >
+            {{ csrf_field() }}
+            {{ method_field('DELETE') }}
+            <p>Are you sure you want to delete this brand?</p>
+            <input type="submit" value="Yes, delete this brand">
+            <a href="#" class="dismiss-popup" data-popup="delete">No, cancel</a>
+        </form>
+    </div>
 @endsection
+
+@push('scripts')
+    <script src="/js/popup.js"></script>
+@endpush

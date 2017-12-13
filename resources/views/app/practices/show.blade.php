@@ -22,9 +22,13 @@
         </div>
     </div>
 
-    @php $route = route('practices.destroy', ['id' => $practice->id]) @endphp
     <div class="popup" id="popup-delete">
-        <form action="{{ $route }}" method="POST" class="danger confirmation" id="delete-form">
+        <form
+            action="{{ route('practices.destroy', $practice) }}"
+            method="POST"
+            class="danger confirmation"
+            id="delete-form"
+        >
             {{ csrf_field() }}
             {{ method_field('DELETE') }}
             <p>Are you sure you want to delete this practice?</p>

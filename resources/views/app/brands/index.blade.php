@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Brands</h1>
+    <h2>Brands</h2>
 
     <div class="scroller">
         @if ($groupedBrands->count() > 0)

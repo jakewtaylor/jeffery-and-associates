@@ -5,9 +5,9 @@
     flex-wrap: wrap;
     margin: 2em 0;
 
+    $margin: 1%;
     .card {
         text-decoration: none;
-        $margin: 1%;
         flex-basis: 50% - ($margin * 2);
         padding: 2em;
         margin: $margin;
